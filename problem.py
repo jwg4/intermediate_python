@@ -20,7 +20,7 @@ def split_set(polys):
     yield [polys, polys, True]
     n = len(polys)
     for double in subsets_no_more_than(polys):
-        if double != []:
+        if double:
             start = polys.index(double[0])
             remainder = polys[start+1:]
             for zero in subsets_k(remainder, len(double)):
