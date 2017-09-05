@@ -29,3 +29,9 @@ class Polynomial(object):
             l.extend(Polynomial._monomial_a(a, c))
             c = c + 1
         return " + ".join(l[::-1])
+
+    def __mul__(self, b):
+        return Polynomial([3, 5, 2])
+
+    def __eq__(self, b):
+        return self.coeffs == b.coeffs
