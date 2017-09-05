@@ -1,6 +1,7 @@
 import unittest
 
 from poly import Polynomial
+from problem import combine_w_symmetry
 from problem import split_by_height
 from problem import split_set
 
@@ -44,3 +45,12 @@ class TestSplitSet(unittest.TestCase):
             [ [a, a], [b, b], False ],
         ]
         self.assertEqual(list(split_set(polys)), expected)
+
+
+class TestCombineWSymmetry(unittest.TestCase):
+    def test_single_split(self):
+        sets = [ [ ["A", "A", True] ] ]
+        expected = [
+            [ ["A"], ["A"] ]
+        ]
+        self.assertEqual(list(combine_w_symmetry(sets)), expected)
