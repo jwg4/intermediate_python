@@ -29,4 +29,9 @@ class TestMultiplication(unittest.TestCase):
         b = Polynomial([3, 2])
         expected = Polynomial([3, 5, 2])
         self.assertEqual(a * b, expected)
-        
+
+    def test_linear_times_linear_2(self):
+        a = Polynomial([1, 1])
+        b = Polynomial([2, 2])
+        expected = Polynomial([2, 4, 2])
+        self.assertEqual(a * b, expected)
