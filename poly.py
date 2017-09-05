@@ -1,12 +1,3 @@
-polys = [
-    [1, 1],
-    [1, 0, 1],
-    [1, -1, 1, -1, 1],
-    [1, 1, 1, 1, 1],
-    [1, 0, -1, 0, 1, 0, -1, 0, 1]
-]
-
-
 class Polynomial(object):
     def __init__(self, coeffs):
         self.coeffs = coeffs
