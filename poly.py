@@ -24,7 +24,6 @@ class Polynomial(object):
             return [Polynomial._monomial(n)]
         else:
             return ["%d%s" % (a, Polynomial._monomial(n))]
-        
 
     def __str__(self):
         l = []
