@@ -59,5 +59,5 @@ def combine_w_symmetry(sets, symmetrical=True):
  
 def split(polys):
     by_height = split_by_height(polys)
-    splits = [ split_set(by_height[x]) for x in by_height ]
+    splits = [ list(split_set(by_height[x])) for x in by_height ]
     combinations = combine_w_symmetry(splits, True)
