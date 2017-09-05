@@ -34,3 +34,13 @@ class TestSplitSet(unittest.TestCase):
             ],
         ]
         self.assertEqual(list(split_set(polys)), expected)
+
+    def test_split_four(self):
+        a = "a"
+        b = "b"
+        polys = [a, b]
+        expected = [
+            [ [a, b], [a, b], True ],
+            [ [a, a], [b, b], False ],
+        ]
+        self.assertEqual(list(split_set(polys)), expected)
