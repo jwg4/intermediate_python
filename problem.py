@@ -46,14 +46,14 @@ def combine_w_symmetry(sets, symmetrical=True):
     for left, right, is_sym in s:
         if is_sym:
             for l_tail, r_tail in combine_w_symmetry(tail, True):
-                yield [[left] + l_tail, [right] + r_tail]
+                yield [left + l_tail, right + r_tail]
         else:
             for l_tail, r_tail in combine_w_symmetry(tail, False):
                 if symmetrical:
-                    yield [[left] + l_tail, [right] + r_tail]
+                    yield [left + l_tail, right + r_tail]
                 else:
-                    yield [[left] + l_tail, [right] + r_tail]
-                    yield [[right] + l_tail, [left] + r_tail]
+                    yield [left + l_tail, right + r_tail]
+                    yield [right + l_tail, left + r_tail]
      
 
  
