@@ -30,8 +30,14 @@ class Polynomial(object):
             c = c + 1
         return " + ".join(l[::-1])
 
+    def __repr__(self):
+        return "Polynomial<%s>" % (self.__str__(), )
+
     def __mul__(self, b):
         return Polynomial([3, 5, 2])
 
     def __eq__(self, b):
         return self.coeffs == b.coeffs
+
+    def __ne__(self, b):
+        return self.coeffs != b.coeffs

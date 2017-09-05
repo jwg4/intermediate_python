@@ -16,6 +16,14 @@ class TestDisplayPoly(unittest.TestCase):
 
 
 class TestMultiplication(unittest.TestCase):
+    def setUp(self):
+        def compare(a, b, msg=None):
+            if a != b:
+                if msg is None:
+                    msg = "%s != %s" % (repr(a), repr(b))
+                raise self.failureException(msg)
+        self.addTypeEqualityFunc(Polynomial, compare)
+
     def test_linear_times_linear(self):
         a = Polynomial([1, 1])
         b = Polynomial([3, 2])
