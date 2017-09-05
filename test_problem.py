@@ -54,3 +54,13 @@ class TestCombineWSymmetry(unittest.TestCase):
             [ ["A"], ["A"] ]
         ]
         self.assertEqual(list(combine_w_symmetry(sets)), expected)
+
+    def test_two_splits(self):
+        sets = [
+            [ ["A", "A", True] ],
+            [ ["B", "B", True] ],
+        ]
+        expected = [
+            [ ["A", "B"], ["A", "B"] ]
+        ]
+        self.assertEqual(list(combine_w_symmetry(sets)), expected)
