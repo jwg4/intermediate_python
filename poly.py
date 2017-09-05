@@ -5,6 +5,10 @@ class Polynomial(object):
     @property
     def degree(self):
         return len(self.coeffs) - 1
+
+    @property
+    def height(self):
+        return sum(self.coeffs)
     
     @staticmethod
     def _monomial(n):
