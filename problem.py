@@ -5,13 +5,15 @@ from sets import subsets_k
 from sets import subsets_no_more_than
 
 
-polys = [
+POLY_LISTS = [
     [1, 1],
     [1, 0, 1],
     [1, -1, 1, -1, 1],
     [1, 1, 1, 1, 1],
     [1, 0, -1, 0, 1, 0, -1, 0, 1]
 ]
+
+POLYS = [ Polynomial(l) for l in POLY_LISTS ]
 
 
 def split_set(polys):
