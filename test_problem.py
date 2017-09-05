@@ -72,7 +72,7 @@ class TestSplitSetOne(unittest.TestCase):
 
 class TestCombineWSymmetry(unittest.TestCase):
     def test_single_split(self):
-        sets = [ [ ["A", "A", True] ] ]
+        sets = [ [ [["A"], ["A"], True] ] ]
         expected = [
             [ ["A"], ["A"] ]
         ]
@@ -80,8 +80,8 @@ class TestCombineWSymmetry(unittest.TestCase):
 
     def test_two_splits(self):
         sets = [
-            [ ["A", "A", True] ],
-            [ ["B", "B", True] ],
+            [ [["A"], ["A"], True] ],
+            [ [["B"], ["B"], True] ],
         ]
         expected = [
             [ ["A", "B"], ["A", "B"] ]
@@ -90,8 +90,8 @@ class TestCombineWSymmetry(unittest.TestCase):
 
     def test_two_splits_with_asymmetric(self):
         sets = [
-            [ ["A", "A", True] ],
-            [ ["B", "~B", False] ],
+            [ [["A"], ["A"], True] ],
+            [ [["B"], ["~B"], False] ],
         ]
         expected = [
             [ ["A", "B"], ["A", "~B"] ],
@@ -100,8 +100,8 @@ class TestCombineWSymmetry(unittest.TestCase):
 
     def test_two_splits_with_both_asymmetric(self):
         sets = [
-            [ ["A", "a", False] ],
-            [ ["B", "b", False] ],
+            [ [["A"], ["a"], False] ],
+            [ [["B"], ["b"], False] ],
         ]
         expected = [
             [ ["A", "B"], ["a", "b"] ],
