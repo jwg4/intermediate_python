@@ -64,3 +64,24 @@ class TestCombineWSymmetry(unittest.TestCase):
             [ ["A", "B"], ["A", "B"] ]
         ]
         self.assertEqual(list(combine_w_symmetry(sets)), expected)
+
+    def test_two_splits_with_asymmetric(self):
+        sets = [
+            [ ["A", "A", True] ],
+            [ ["B", "~B", False] ],
+        ]
+        expected = [
+            [ ["A", "B"], ["A", "~B"] ],
+        ]
+        self.assertEqual(list(combine_w_symmetry(sets)), expected)
+
+    def test_two_splits_with_both_asymmetric(self):
+        sets = [
+            [ ["A", "a", False] ],
+            [ ["B", "b", False] ],
+        ]
+        expected = [
+            [ ["A", "B"], ["a", "b"] ],
+            [ ["A", "b"], ["a", "B"] ],
+        ]
+        self.assertEqual(list(combine_w_symmetry(sets)), expected)
