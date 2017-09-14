@@ -43,3 +43,11 @@ def multi_subsets(s):
             d.update(ss)
             yield d
         
+
+def multi_subtract(a, b):
+    d = a.copy()
+    for k in b:
+        d[k] = d[k] - b[k]
+        if d[k] == 0:
+            d.pop(k)
+    return d 

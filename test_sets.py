@@ -1,6 +1,6 @@
 import unittest
 
-from sets import multi_subsets
+from sets import multi_subsets, multi_subtract
 from sets import subsets_k
 from sets import subsets_no_more_than
 
@@ -42,3 +42,12 @@ class TestMultiSubsets(unittest.TestCase):
         self.assertEqual(sorted(actual), sorted(expected))
         self.assertEqual(m, m_copy)
 
+
+class TestMultiSubtract(unittest.TestCase):
+    def test_simple_multisets(self):
+        a = {'foo': 2, 'bar': 1, 'baz': 3}
+        b = {'foo': 1, 'bar': 1}
+        d = multi_subtract(a, b)
+        e = {'foo': 1, 'baz': 3}
+        self.assertEqual(d, e)
+        
