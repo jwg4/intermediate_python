@@ -14,6 +14,14 @@ class Polynomial(object):
     def is_positive(self):
         return all(x >= 0 for x in self.coeffs)
     
+    @property
+    def pretty_values(self):
+        c = 0
+        for p in self.coeffs:
+            for i in range(0, p):
+                yield c
+            c = c + 1
+    
     @staticmethod
     def _monomial(n):
         if n == 0:
