@@ -90,7 +90,8 @@ def split(polys):
     splits = [ list(split_smart(by_height[x], x)) for x in by_height ]
     combinations = combine_w_symmetry(splits, True)
     products = [ [product(c[0]), product(c[1])] for c in combinations ]
-    return list(products)
+    positive = [ x for x in products if x[0].is_positive and x[1].is_positive ]
+    return list(positive)
 
 
 if __name__ == '__main__':
