@@ -5,6 +5,7 @@ from problem import combine_w_symmetry
 from problem import split_by_height
 from problem import split_set
 from problem import split_set_one
+from problem import split_smart
 
 
 class TestSplitByHeight(unittest.TestCase):
@@ -84,6 +85,26 @@ class TestSplitSetOne(unittest.TestCase):
         actual = list(split_set_one(polys))
         self.assertEqual(sorted(actual), sorted(expected))
         self.assertEqual(list(split_set_one(polys)), expected)
+
+
+class TestSplitSmart(unittest.TestCase):
+    def test_split_height_one(self):
+        a = "a"
+        b = "b"
+        polys = [a, b]
+        self.assertEqual(
+            list(split_smart(polys, 1)),
+            list(split_set_one(polys))
+        )
+
+    def test_split_height_two(self):
+        a = "a"
+        b = "b"
+        polys = [a, b]
+        self.assertEqual(
+            list(split_smart(polys, 2)),
+            list(split_set(polys))
+        )
 
 
 class TestCombineWSymmetry(unittest.TestCase):

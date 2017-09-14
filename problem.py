@@ -44,6 +44,13 @@ def split_set_one(polys):
             yield [left, right, False]
 
 
+def split_smart(polys, height):
+    if height == 1:
+        return split_set_one(polys)
+    else:
+        return split_set(polys)
+
+
 def split_by_height(polys):
     d = defaultdict(list)
     for p in polys:
