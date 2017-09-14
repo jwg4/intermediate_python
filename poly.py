@@ -10,6 +10,10 @@ class Polynomial(object):
     def height(self):
         return sum(self.coeffs)
     
+    @property
+    def is_positive(self):
+        return all(x >= 0 for x in self.coeffs)
+    
     @staticmethod
     def _monomial(n):
         if n == 0:

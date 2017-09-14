@@ -35,3 +35,11 @@ class TestMultiplication(unittest.TestCase):
         b = Polynomial([2, 2])
         expected = Polynomial([2, 4, 2])
         self.assertEqual(a * b, expected)
+
+
+class TestIsPositive(unittest.TestCase):
+    def test_positive(self):
+        self.assertTrue(Polynomial([1, 3, 4, 4, 3, 1]).is_positive)
+
+    def test_negative(self):
+        self.assertFalse(Polynomial([1, 3, -4, 4, 3, 1]).is_positive)
