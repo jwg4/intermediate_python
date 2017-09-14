@@ -2,6 +2,7 @@ import unittest
 
 from poly import Polynomial
 from problem import combine_w_symmetry
+from problem import product
 from problem import split_by_height
 from problem import split_set
 from problem import split_set_one
@@ -145,3 +146,8 @@ class TestCombineWSymmetry(unittest.TestCase):
             [ ["A", "b"], ["a", "B"] ],
         ]
         self.assertEqual(list(combine_w_symmetry(sets)), expected)
+
+
+class TestProduct(unittest.TestCase):
+    def test_empty(self):
+        self.assertEqual(product([]), Polynomial([1]))

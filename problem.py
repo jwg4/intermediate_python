@@ -77,8 +77,14 @@ def combine_w_symmetry(sets, symmetrical=True):
                     yield [left + l_tail, right + r_tail]
                     yield [right + l_tail, left + r_tail]
      
-
  
+def product(polys):
+    if not polys:
+        return Polynomial([1])
+    else:
+        return polys[0] * product(polys[1:])
+
+
 def split(polys):
     by_height = split_by_height(polys)
     splits = [ list(split_set(by_height[x])) for x in by_height ]
