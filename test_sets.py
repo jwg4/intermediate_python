@@ -32,6 +32,7 @@ class TestSubsetsK(unittest.TestCase):
 class TestMultiSubsets(unittest.TestCase):
     def test_simple_multiset(self):
         m = {"a": 2}
+        m_copy = m.copy()
         expected = [
             {"a": 2},
             {"a": 1},
@@ -39,3 +40,5 @@ class TestMultiSubsets(unittest.TestCase):
         ]
         actual = list(multi_subsets(m))
         self.assertEqual(sorted(actual), sorted(expected))
+        self.assertEqual(m, m_copy)
+

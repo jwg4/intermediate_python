@@ -34,8 +34,9 @@ def multi_subsets(s):
     
     key = keys[0]
 
-    n = s.pop(key)
-    for ss in multi_subsets(s):
+    sc = s.copy()
+    n = sc.pop(key)
+    for ss in multi_subsets(sc):
         yield ss.copy()
         for i in range(1, n + 1):
             d = {key: i}
