@@ -21,6 +21,11 @@ class Polynomial(object):
             for i in range(0, p):
                 yield c
             c = c + 1
+
+    @property
+    def pretty(self):
+        s = ", ".join( "%d" % x for x in self.pretty_values)
+        return "(%s)" % s
     
     @staticmethod
     def _monomial(n):

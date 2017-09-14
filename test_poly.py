@@ -46,7 +46,12 @@ class TestIsPositive(unittest.TestCase):
 
 
 class TestPretty(unittest.TestCase):
-    def test_quadratic(self):
+    def test_quadratic_values(self):
         p = Polynomial([3, 5, 2])
         expected = [0, 0, 0, 1, 1, 1, 1, 1, 2, 2]
         self.assertEqual(list(p.pretty_values), expected)
+
+    def test_quadratic(self):
+        p = Polynomial([3, 5, 2])
+        expected = "(0, 0, 0, 1, 1, 1, 1, 1, 2, 2)"
+        self.assertEqual(p.pretty, expected)
