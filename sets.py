@@ -24,3 +24,21 @@ def subsets_k(s, k):
         tails = subsets_k(s[i+1:], k-1)
         for tail in tails:
             yield [s[i]] + tail
+
+
+def multi_subsets(s):
+    keys = s.keys()
+    if not keys:
+        yield {}
+        return
+    
+    key = keys[0]
+
+    n = s.pop(key)
+    for ss in multi_subsets(s):
+        yield ss.copy()
+        for i in range(1, n + 1):
+            d = {key: i}
+            d.update(ss)
+            yield d
+        
