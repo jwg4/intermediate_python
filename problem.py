@@ -94,7 +94,12 @@ def split(polys):
     return list(positive)
 
 
+def pretty(row):
+    return ", ".join([row[0].pretty, row[1].pretty])
+
+
 if __name__ == '__main__':
     x = split(POLYS)
     print len(x)
-    print x
+    for row in x:
+        print pretty(row)
