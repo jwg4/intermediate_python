@@ -1,6 +1,7 @@
 from collections import defaultdict
 
 from poly import Polynomial
+from sets import multi_subsets, multi_subtract
 from sets import subsets, subsets_k
 from sets import subsets_no_more_than
 
@@ -31,12 +32,16 @@ def split_set(polys):
 
 def split_set_one(polys):
     yield [polys, polys, True]
-    for double in subsets(polys):
-        if double:
-            left = [ p for p in polys ] + double
-            right = [ p for p in polys if p not in double ]
+    ms = { p:2 for p in polys }
+    for subset in multi_subsets(ms):
+        left = subset
+        right = multi_subtract(ms, subset)
+        left = [ x for l in left for x in [l] * left[l] ]
+        right = [ x for l in right for x in [l] * right[l] ]
+        if len(left) > len(right):
             yield [left, right, False]
-    
+        elif len(left) == len(right) and left < right:
+            yield [left, right, False]
 
 
 def split_by_height(polys):

@@ -77,8 +77,13 @@ class TestSplitSetOne(unittest.TestCase):
         expected = [
             [ [a, b], [a, b], True ],
             [ [a, a], [b, b], False ],
+            [ [a, a, b], [b], False ],
+            [ [a, b, b], [a], False ],
+            [ [a, a, b, b], [], False ],
         ]
-        self.assertEqual(list(split_set(polys)), expected)
+        actual = list(split_set_one(polys))
+        self.assertEqual(sorted(actual), sorted(expected))
+        self.assertEqual(list(split_set_one(polys)), expected)
 
 
 class TestCombineWSymmetry(unittest.TestCase):
