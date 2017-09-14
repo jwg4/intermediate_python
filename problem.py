@@ -87,7 +87,7 @@ def product(polys):
 
 def split(polys):
     by_height = split_by_height(polys)
-    splits = [ list(split_set(by_height[x])) for x in by_height ]
+    splits = [ list(split_smart(by_height[x], x)) for x in by_height ]
     combinations = combine_w_symmetry(splits, True)
     return list(combinations)
 
