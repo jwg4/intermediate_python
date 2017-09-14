@@ -59,6 +59,17 @@ class TestSplitSetOne(unittest.TestCase):
         ]
         self.assertEqual(list(split_set_one(polys)), expected)
 
+    def test_split_simple_two(self):
+        polys = [
+            "a"
+        ]
+        expected = [
+            [ ["a"], ["a"], True ],
+            [ ["a", "a"], [], False ],
+        ]
+        self.assertEqual(list(split_set_one(polys)), expected)
+
+
     def test_split_four(self):
         a = "a"
         b = "b"
