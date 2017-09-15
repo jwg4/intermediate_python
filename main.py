@@ -51,7 +51,7 @@ def task_worker():
         n, blocks = task_queue.get()
         l = top_number(n-1) + 1
         m = top_number(n)
-        primes = calculate_primes_between(l, m, divisors)
+        primes = calculate_primes_between(l, m, blocks)
         result = (n, primes)
         result_queue.put(result)
 
