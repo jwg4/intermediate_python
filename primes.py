@@ -19,3 +19,6 @@ def generate_primes_between(a, b, primes):
 def calculate_primes_between(a, b, primes):
     return list(generate_primes_between(a, b, primes))
     
+
+def can_test_to(n):
+    return n**2

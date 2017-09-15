@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 from primes import calculate_primes_less_than, calculate_primes_between
+from primes import can_test_to
 
 
 class TestCalculatePrimesLessThan(TestCase):
@@ -15,3 +16,8 @@ class TestCalculatePrimesBetween(TestCase):
         expected = [11, 13, 17, 19]
         result = calculate_primes_between(11, 20, primes)
         self.assertEqual(result, expected)
+
+
+class TestCanTestTo(TestCase):
+    def test_small_number(self):
+        self.assertEqual(can_test_to(10), 100)
