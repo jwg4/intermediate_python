@@ -1,3 +1,6 @@
+from math import sqrt
+
+
 def calculate_primes_less_than(n):
     l = [2]
     for i in range(3, n):
@@ -21,4 +24,8 @@ def calculate_primes_between(a, b, primes):
     
 
 def can_test_to(n):
-    return n**2
+    return (n + 1)**2 - 1
+    
+
+def need_to_test(n):
+    return int(sqrt(n))

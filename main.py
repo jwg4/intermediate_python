@@ -1,7 +1,7 @@
 from multiprocessing import Process, Queue
 
 from primes import calculate_primes_less_than, calculate_primes_between
-from primes import can_test_to
+from primes import can_test_to, need_to_test
 from basic_block import BasicBlock as block_counter
 
 task_queue = Queue()
