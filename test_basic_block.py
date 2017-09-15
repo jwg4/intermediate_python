@@ -14,3 +14,4 @@ class TestBasicBlock(TestCase):
  
     def test_block_contains(self):
         self.assertEqual(self.counter.block_contains(657), 1)
+        self.assertEqual(self.counter.block_contains(1000), 1)

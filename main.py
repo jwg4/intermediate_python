@@ -18,7 +18,8 @@ top_number = counter.top_number
 
 def queue_task(next_block):
     global queued
-    blocks = [ primes[i] for i in range(0, block_contains(need_to_test(top_number(next_block)))) ]
+    print next_block
+    blocks = [ primes[i] for i in range(1, block_contains(need_to_test(top_number(next_block))) + 1) ]
     task = (next_block, blocks)
     task_queue.put(task)
     queued = next_block
