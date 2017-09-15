@@ -34,7 +34,7 @@ def handle_results():
 
 
 def put_first_block():
-    m = top_number(1)
+    m = top_number(1) + 1
     primes = calculate_primes_less_than(m)
     result = (m, primes)
     result_queue.put(result)
