@@ -22,8 +22,8 @@ def queue_task(next_block):
     queued = next_block
 
 
-def handle_results():
-    while True:
+def handle_results(limit):
+    while handled < limit:
         n, prime_list = result_queue.get() 
         primes[n] == prime_list
         
