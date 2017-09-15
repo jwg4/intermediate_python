@@ -29,7 +29,7 @@ class TestCanTestTo(TestCase):
         self.assertGreaterEqual(limit, start)
 
     def test_round_trip_2(self):
+        start = 17
         limit = can_test_to(start)
-        print limit
         primes_needed = need_to_test(limit)
         self.assertIn(primes_needed, [start, start+1])
