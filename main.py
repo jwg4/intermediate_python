@@ -56,6 +56,10 @@ def task_worker():
         result_queue.put(result)
 
 
+def get_results(primes):
+    return [ x for l in sorted(primes.keys()) for x in primes[l] ] 
+
+
 if __name__ == '__main__':
     put_first_block()
     handle_results(10)
