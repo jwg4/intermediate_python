@@ -28,7 +28,7 @@ def handle_results(limit):
     global handled
     while handled < limit:
         n, prime_list = result_queue.get() 
-        primes[n] == prime_list
+        primes[n] = prime_list
         
         while (handled + 1) in primes:
             handled = handled + 1
