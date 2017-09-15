@@ -4,3 +4,6 @@ class BasicBlock(object):
 
     def top_number(self, n):
         return (n / self.size + 1) * self.size
+
+    def block_contains(self, n):
+        return (n / self.size + 1)
