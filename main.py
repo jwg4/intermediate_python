@@ -49,3 +49,7 @@ def task_worker():
         primes = calculate_primes_between(l, m, divisors)
         result = (n, primes)
         result_queue.put(result)
+
+
+if __name__ == '__main__':
+    put_first_block()
