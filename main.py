@@ -17,16 +17,15 @@ top_number = counter.top_number
 
 
 def queue_task(next_block):
-    global queued
-    print next_block
     blocks = [ primes[i] for i in range(1, block_contains(need_to_test(top_number(next_block))) + 1) ]
     task = (next_block, blocks)
     task_queue.put(task)
-    queued = next_block
 
 
 def handle_results(limit):
     global handled
+    global queued
+
     while handled < limit:
         n, prime_list = result_queue.get() 
         primes[n] = prime_list
@@ -34,8 +33,10 @@ def handle_results(limit):
         while (handled + 1) in primes:
             handled = handled + 1
         
-        while can_test_to(top_number(handled)) >= top_number(queued + 1):
-            queue_task(queued + 1)
+        while can_test_to(top_number(handled)) >= top_number(queued + 1) and queued < limit:
+            next_block = queued + 1
+            queue_task(next_block)
+            queued = next_block
 
 
 def put_first_block():
