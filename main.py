@@ -61,5 +61,20 @@ def get_results(primes):
 
 
 if __name__ == '__main__':
+    BLOCK_COUNT = 10000
+    WORKER_COUNT = 10
+
     put_first_block()
-    handle_results(10)
+
+    workers = [ Process(target=task_worker) for x in range(WORKER_COUNT) ]
+    for w in workers:
+        w.start()
+
+    handle_results(BLOCK_COUNT)
+
+    for w in workers:
+        w.terminate()
+
+    results = get_results(primes)
+    print len(results)
+    print results[-1]
