@@ -1,5 +1,6 @@
 from multiprocessing import Process, Queue
 
+from primes import calculate_primes_less_than, calculate_primes_between
 
 task_queue = Queue()
 result_queue = Queue()
