@@ -56,3 +56,4 @@ def task_worker():
 
 if __name__ == '__main__':
     put_first_block()
+    handle_results(10)
