@@ -38,3 +38,13 @@ def put_first_block():
     primes = calculate_primes_less_than(m)
     result = (m, primes)
     result_queue.put(result)
+
+
+def task_worker():
+    while True:
+        n, blocks = task_queue.get()
+        l = top_number(n-1) + 1
+        m = top_number(n)
+        primes = calculate_primes_between(l, m, divisors)
+        result = (n, primes)
+        result_queue.put(result)
