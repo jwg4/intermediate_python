@@ -6,7 +6,7 @@ result_queue = Queue()
 
 primes = {}
 handled = 0 
-queued = 0
+queued = 1
 
 counter = BasicBlock(1000)
 block_contains = counter.block_contains
@@ -30,3 +30,10 @@ def handle_results():
         
         while can_test_to(top_number(handled)) >= top_number(queued + 1):
             queue_task(queued + 1)
+
+
+def put_first_block():
+    m = top_number(1)
+    primes = calculate_primes_less_than(m)
+    result = (m, primes)
+    result_queue.put(result)
