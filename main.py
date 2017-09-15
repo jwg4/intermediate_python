@@ -17,6 +17,7 @@ top_number = counter.top_number
 
 
 def queue_task(next_block):
+    global queued
     blocks = [ primes[i] for i in range(0, block_contains(need_to_test(top_number(next_block)))) ]
     task = (next_block, blocks)
     task_queue.put(task)
@@ -24,6 +25,7 @@ def queue_task(next_block):
 
 
 def handle_results(limit):
+    global handled
     while handled < limit:
         n, prime_list = result_queue.get() 
         primes[n] == prime_list
