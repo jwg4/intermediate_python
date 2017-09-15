@@ -7,6 +7,15 @@ def calculate_primes_less_than(n):
     return l
 
 
+def generate_primes_between(a, b, primes):
+    for i in range(a, b+1):
+        if all(
+            all((i % p != 0) for p in l)
+            for l in primes
+            ):
+            yield i
+
+
 def calculate_primes_between(a, b, primes):
-    pass
+    return list(generate_primes_between(a, b, primes))
     
