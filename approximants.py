@@ -2,7 +2,25 @@ from math import floor, sqrt
 
 
 def root_convergents(n):
-    a = floor(sqrt(n))
-    b = 1
+    l = []
+    for a in cf_expansion(n):
+        l.append(a)
+        yield evaluate_cf(l)
+
+
+def cf_expansion(n):
+    m = 0
+    d = 1
+    a = a0 = int(floor(sqrt(n)))
     while True:
-        yield (a, b)
+        yield a
+        m = d * a - m
+        d = (n - m * m) / d
+        a = (a0 + m) / d
+
+
+def evaluate_cf(l):
+    a, b = (1, 0)
+    for j in l[::-1]:
+        a, b = (j * a + b, a)
+    return a, b
