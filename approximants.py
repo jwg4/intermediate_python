@@ -44,3 +44,10 @@ def is_not_square(n):
         elif i * i > n:
             return True  
         i = i + 1
+
+
+if __name__ == '__main__':
+    print max(
+        ((n, fundamental_solution(n)[0]) for n in range(1, 100) if is_not_square(n)),
+        key = lambda x: x[1]
+    )
