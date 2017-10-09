@@ -27,7 +27,7 @@ class TestPellApproximation(unittest.TestCase):
         self.assertEqual(pell_approximation(7, 5, 2), -3)
 
 
-class TestFundamentalSolution(unittest.TestCase):   
+class TestFundamentalSolution(unittest.TestCase):
     def test_solution_for_7(self):
         self.assertEqual(fundamental_solution(7), (8, 3))
 
