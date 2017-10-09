@@ -33,3 +33,6 @@ class TestFundamentalSolution(unittest.TestCase):
 
     def test_solution_for_8(self):
         self.assertEqual(fundamental_solution(8), (3, 1))
+
+    def test_solution_for_61(self):
+        self.assertEqual(fundamental_solution(61), (1766319049, 226153980))
