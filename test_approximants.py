@@ -1,6 +1,6 @@
 import unittest
 
-from approximants import root_convergents
+from approximants import root_convergents, pell_approximation
 
 
 class TestRootConvergents(unittest.TestCase):
@@ -20,3 +20,8 @@ class TestRootConvergents(unittest.TestCase):
         generator.next()
         x = generator.next()
         self.assertEqual(x, (5, 2))
+
+
+class TestPellApproximation(unittest.TestCase):
+    def test_third_approximation_to_root_7(self):
+        self.assertEqual(pell_approximation(7, 5, 2), -3)

@@ -24,3 +24,7 @@ def evaluate_cf(l):
     for j in l[::-1]:
         a, b = (j * a + b, a)
     return a, b
+
+
+def pell_approximation(n, a, b):
+    return a**2 - 7 * b**2
