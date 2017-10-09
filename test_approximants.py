@@ -8,3 +8,8 @@ class TestRootConvergents(unittest.TestCase):
         generator = root_convergents(2)
         x = generator.next()
         self.assertEqual(x, (1, 1))
+
+    def test_first_approximation_to_root_7(self):
+        generator = root_convergents(7)
+        x = generator.next()
+        self.assertEqual(x, (2, 1))
