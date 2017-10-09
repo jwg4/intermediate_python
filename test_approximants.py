@@ -1,6 +1,6 @@
 import unittest
 
-from approximants import root_convergents, pell_approximation
+from approximants import root_convergents, pell_approximation, fundamental_solution
 
 
 class TestRootConvergents(unittest.TestCase):
@@ -25,3 +25,8 @@ class TestRootConvergents(unittest.TestCase):
 class TestPellApproximation(unittest.TestCase):
     def test_third_approximation_to_root_7(self):
         self.assertEqual(pell_approximation(7, 5, 2), -3)
+
+
+class TestFundamentalSolution(unittest.TestCase):   
+    def test_solution_for_7(self):
+        self.assertEqual(fundamental_solution(7), (8, 3))
