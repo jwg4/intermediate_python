@@ -27,7 +27,7 @@ def evaluate_cf(l):
 
 
 def pell_approximation(n, a, b):
-    return a**2 - 7 * b**2
+    return a**2 - n * b**2
 
 
 def fundamental_solution(n):
