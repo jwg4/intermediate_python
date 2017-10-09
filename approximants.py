@@ -34,3 +34,13 @@ def fundamental_solution(n):
     for a, b in root_convergents(n):
         if pell_approximation(n, a, b) == 1:
             return a, b
+
+
+def is_not_square(n):
+    i = 1
+    while True:
+        if i * i == n:
+            return False
+        elif i * i > n:
+            return True  
+        i = i + 1

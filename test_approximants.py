@@ -1,6 +1,7 @@
 import unittest
 
-from approximants import root_convergents, pell_approximation, fundamental_solution
+from approximants import root_convergents, pell_approximation
+from approximants import fundamental_solution, is_not_square
 
 
 class TestRootConvergents(unittest.TestCase):
@@ -36,3 +37,10 @@ class TestFundamentalSolution(unittest.TestCase):
 
     def test_solution_for_61(self):
         self.assertEqual(fundamental_solution(61), (1766319049, 226153980))
+
+
+class TestIsNotSquare(unittest.TestCase):
+    def test_up_to_100(self):
+        expected = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+        result = [ x for x in range(1, 101) if not is_not_square(x) ]
+        self.assertEqual(result, expected)
