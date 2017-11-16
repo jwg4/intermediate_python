@@ -13,3 +13,9 @@ class TestModFive(unittest.TestCase):
         b = self.ff.FFPoint(4)
         expected = self.ff.FFPoint(2)
         self.assertEqual(a + b, expected)
+
+    def test_multiplication(self):
+        a = self.ff.FFPoint(3)
+        b = self.ff.FFPoint(4)
+        expected = self.ff.FFPoint(2)
+        self.assertEqual(a * b, expected)

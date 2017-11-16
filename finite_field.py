@@ -9,7 +9,7 @@ class FiniteField(object):
             def __add__(self, x):
                 return FFPoint(self.n + x.n)
 
-            def __mult__(self, x):
+            def __mul__(self, x):
                 return FFPoint(self.n * x.n)
 
             def __eq__(self, x):
