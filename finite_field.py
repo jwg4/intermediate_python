@@ -15,4 +15,7 @@ class FiniteField(object):
             def __eq__(self, x):
                 return self.n == x.n
 
+            def __str__(self):
+                return "FFPoint(%d)" % (self.n, )
+
         self.FFPoint = FFPoint
