@@ -25,4 +25,7 @@ class FiniteField(object):
             def __str__(self):
                 return "FFPoint(%d)" % (self.n, )
 
+            def __repr__(self):
+                return "FFPoint(%d)" % (self.n, )
+
         self.FFPoint = FFPoint
