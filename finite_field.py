@@ -1,3 +1,6 @@
+from math_helpers import eea
+
+
 class FiniteField(object):
     def __init__(self, p):
         self.p = p
@@ -8,7 +11,8 @@ class FiniteField(object):
 
             @property
             def inv(self):
-                return self.n
+                d, m, n = eea(self.n, p)
+                return m
  
             def __add__(self, x):
                 return FFPoint(self.n + x.n)
