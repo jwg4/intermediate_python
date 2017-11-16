@@ -19,3 +19,9 @@ class TestModFive(unittest.TestCase):
         b = self.ff.FFPoint(4)
         expected = self.ff.FFPoint(2)
         self.assertEqual(a * b, expected)
+
+    def test_division(self):
+        a = self.ff.FFPoint(2)
+        b = self.ff.FFPoint(4)
+        expected = self.ff.FFPoint(3)
+        self.assertEqual(a / b, expected)

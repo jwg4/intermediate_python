@@ -6,11 +6,18 @@ class FiniteField(object):
             def __init__(self, n):
                 self.n = n % p
 
+            @property
+            def inv(self):
+                return self.n
+ 
             def __add__(self, x):
                 return FFPoint(self.n + x.n)
 
             def __mul__(self, x):
                 return FFPoint(self.n * x.n)
+
+            def __div__(self, x):
+                return FFPoint(self.n * x.inv)
 
             def __eq__(self, x):
                 return self.n == x.n
