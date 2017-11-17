@@ -16,3 +16,7 @@ class TestObjectBehavior(unittest.TestCase):
         second = self.pp(4, 3, 2)
         self.assertEqual(first, second)
     
+    def test_two_different_objects(self):
+        first = self.pp(1, 2, 0)
+        second = self.pp(4, 3, 2)
+        self.assertNotEqual(first, second)
