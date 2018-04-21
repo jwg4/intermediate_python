@@ -1,7 +1,7 @@
 # How to get good at Python
 
 ## The essentials
-You need to know how to define, use and reason about the following very key concepts:
+These are fundamental. You should be very confident you know how to define, use, and reason about:
 - lists
 - dicts
 - functions
