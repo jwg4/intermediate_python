@@ -41,6 +41,7 @@ Not part of core Python, but to be a competent Python programmer you need to kno
 - requests
 - setuptools
 - BeautifulSoup
+- ipdb
 
 ## Advanced concepts
 - threads
