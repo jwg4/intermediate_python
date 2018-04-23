@@ -5,7 +5,7 @@ class PeekableInterface(object):
     def peek(self):
         pass
 
-    def next(self):
+    def __next__(self):
         pass
 
     def hasNext(self):
