@@ -29,3 +29,9 @@ class TestPeekableInterface(unittest.TestCase):
         p = peekable.PeekableInterface(i)
         self.assertEqual(p.peek(), "Z")
         self.assertEqual(p.__next__(), "Z")
+
+    def test_peek_past_the_end_of_list(self):
+        l = []
+        i = iter(l)
+        p = peekable.PeekableInterface(i)
+        self.assertIsNone(p.peek())
