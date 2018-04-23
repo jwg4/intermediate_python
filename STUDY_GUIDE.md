@@ -23,6 +23,8 @@ The following are all part of core Python. If you have never used any of these y
 - re (regular expressions)
 - logging
 - subprocess
+- collections
+- itertools
 
 ## Very useful built-in modules
 You can live without understanding these, but it's better to know about them so you can use them if you need them:
@@ -42,6 +44,7 @@ Not part of core Python, but to be a competent Python programmer you need to kno
 - setuptools
 - BeautifulSoup
 - ipdb
+- matplotlib
 
 ## Advanced concepts
 - threads
