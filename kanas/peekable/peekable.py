@@ -1,12 +1,12 @@
 class PeekableInterface(object):
     def __init__(self, iterator):
-        pass
+        self.iterator = iterator
 
     def peek(self):
         pass
 
     def __next__(self):
-        pass
+        return self.iterator.__next__()
 
     def hasNext(self):
         pass
