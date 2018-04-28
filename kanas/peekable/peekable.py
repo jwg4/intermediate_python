@@ -22,4 +22,4 @@ class PeekableInterface(object):
             self.end_of_list = True
 
     def hasNext(self):
-        pass
+        return not self.end_of_list
