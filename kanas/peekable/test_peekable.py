@@ -52,3 +52,9 @@ class TestPeekableInterface(unittest.TestCase):
         self.assertEqual(p.__next__(), "Z")
         self.assertEqual(p.peek(), "YY")
         self.assertEqual(p.__next__(), "YY")
+
+    def test_has_next(self):
+        l = ["foo", "bar", "baz"]
+        i = iter(l)
+        p = peekable.PeekableInterface(i)
+        self.assertTrue(p.hasNext())
