@@ -43,3 +43,12 @@ class TestPeekableInterface(unittest.TestCase):
         self.assertEqual(p.peek(), "Z")
         self.assertEqual(p.peek(), "Z")
         self.assertEqual(p.__next__(), "Z")
+
+    def test_peek_two_different_values(self):
+        l = ["Z", "YY"]
+        i = iter(l)
+        p = peekable.PeekableInterface(i)
+        self.assertEqual(p.peek(), "Z")
+        self.assertEqual(p.__next__(), "Z")
+        self.assertEqual(p.peek(), "YY")
+        self.assertEqual(p.__next__(), "YY")
