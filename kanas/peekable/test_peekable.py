@@ -35,3 +35,11 @@ class TestPeekableInterface(unittest.TestCase):
         i = iter(l)
         p = peekable.PeekableInterface(i)
         self.assertIsNone(p.peek())
+
+    def test_peek_twice(self):
+        l = ["Z", "YY"]
+        i = iter(l)
+        p = peekable.PeekableInterface(i)
+        self.assertEqual(p.peek(), "Z")
+        self.assertEqual(p.peek(), "Z")
+        self.assertEqual(p.__next__(), "Z")
