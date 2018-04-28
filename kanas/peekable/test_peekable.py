@@ -58,3 +58,18 @@ class TestPeekableInterface(unittest.TestCase):
         i = iter(l)
         p = peekable.PeekableInterface(i)
         self.assertTrue(p.hasNext())
+
+    def test_has_next_end_of_iterator(self):
+        l = ["foo", "bar", "baz"]
+        i = iter(l)
+        p = peekable.PeekableInterface(i)
+        p.__next__()
+        p.__next__()
+        p.__next__()
+        self.assertFalse(p.hasNext())
+
+    def test_has_next_empty_iterator(self):
+        l = []
+        i = iter(l)
+        p = peekable.PeekableInterface(i)
+        self.assertFalse(p.hasNext())
