@@ -1,3 +1,15 @@
 # Parallel/Async/Multithreading in Python 3
 
+---
+We are going to talk about doing lots of things on one machine. NOT about doing lots of things on lots of machines (or one thing on lots of machines).
+
+---
+## What is async?
+ - When you make an IO call, you do something else while waiting for the call to return.
+ - Ideal for database calls, HTTP requests.
+ - Commonly used in JavaScript.
+ - Important for application servers.
+ - Typically using an event queue.
+ - When the call does return, how do you pause the thing you're now doing?
+ 
 ---?code=topics/parallel/primes/main.py&lang=python
