@@ -18,6 +18,12 @@ The OS only sees one thread. But on that thread we do one thing, then clear the 
 and start doing something else. We save the context we were doing the first thing in,
 so that we can switch back to it.
 
+Blocking I/O means that the process will block while waiting for I/O. If we have green
+threads and only one OS-level process, all activity on that process will pause (but other
+processes, at the OS level, will run). So we have to use nonblocking IO.
+
+We can combine nonblocking I/O with an event loop to have async I/O.
+
 ---
 ## Structuring async code
  - Coroutines - explicitly switch to another 'fake thread'
