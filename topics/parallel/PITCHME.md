@@ -11,5 +11,18 @@ We are going to talk about doing lots of things on one machine. NOT about doing 
  - Important for application servers.
  - Typically using an event queue.
  - When the call does return, how do you pause the thing you're now doing?
+
+---
+## 'Green' threads
+The OS only sees one thread. But on that thread we do one thing, then clear the stack
+and start doing something else. We save the context we were doing the first thing in,
+so that we can switch back to it.
+
+---
+## Structuring async code
+ - Coroutines - explicitly switch to another 'fake thread'
+ - Event driven - events add something to the queue
+ - Callbacks - pass the next function to the async one
+ - Promises - monadic
  
 ---?code=topics/parallel/primes/main.py&lang=python
