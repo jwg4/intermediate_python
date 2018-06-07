@@ -4,6 +4,23 @@
 We are going to talk about doing lots of things on one machine. NOT about doing lots of things on lots of machines (or one thing on lots of machines).
 
 ---
+## Multiprocessing
+This is a good approach if it works for you and you don't want to get embroiled in complexity.
+
+We can just run lots of different processes. For example several different Python scripts,
+or several copies of the same one. They can run on different CPU cores, at the same time. If one
+process is waiting for something, the others will continue as normal.
+
+They don't share any RAM and have to co-ordinate using the filesystem. If waiting for the filesystem
+takes too long, this won't work.
+
+The Global Interpreter Lock is not a problem for separate Python processes.
+
+---
+## Multithreading
+
+
+---
 ## What is async?
  - When you make an IO call, you do something else while waiting for the call to return.
  - Ideal for database calls, HTTP requests.
