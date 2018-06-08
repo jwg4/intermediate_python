@@ -74,6 +74,13 @@ We can combine nonblocking I/O with an event loop to have async I/O.
  - Coroutines - explicitly switch to another 'fake thread'
  - Event driven - events add something to the queue
  - Callbacks - pass the next function to the async one
- - Promises - monadic
- 
----?code=topics/parallel/primes/main.py&lang=python
+ - Promises/futures - monadic
+
+--- 
+## Generators and yield
+The first way Python did coroutines was with the 'yield' keyword.
+This allows us to create 'lazy iterables'.
+These are data structures where, whenever we try to retrieve some values, some will be available.
+They could already by present in a list, or some could be generated each time.
+
+---?code=topics/parallel/infinite.py&lang=python
