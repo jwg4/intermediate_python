@@ -40,6 +40,15 @@ In the second case, you might not need threads. An asynchronous approach could b
 (In the first case, you maybe don't need Python threads.)
 
 ---
+## Thread-safe objects
+
+---
+## Locking and queuing
+
+
+---?code=topics/parallel/primes/main.py&lang=python
+
+---
 ## What is async?
  - When you make an IO call, you do something else while waiting for the call to return.
  - Ideal for database calls, HTTP requests.
