@@ -91,6 +91,8 @@ Generators became useful for switching in and out of functions. So 'send' keywor
 You can 'send' a value into a function, and have it 'yield' back a value, while the context is saved.
 
 ---?code=topics/parallel/send.py&lang=python
+@[1-8]
+@[12-16]
 
 ---
 ## Twisted uses yield to pass control around
