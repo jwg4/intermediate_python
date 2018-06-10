@@ -15,4 +15,5 @@ for i in gen:
    else:
        print i
 
+# https://stackoverflow.com/questions/20579756/passing-value-to-yield-using-send
 # 0, 1, 2, 3, 4, 9
