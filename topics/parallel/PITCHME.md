@@ -42,8 +42,30 @@ In the second case, you might not need threads. An asynchronous approach could b
 ---
 ## Thread-safe objects
 
+Lots of built-in Python code uses C code. Functions are not designed to be pre-emptive, especially modifying objects.
+
+Need special versions of everything - or to isolate objects on threads.
+
 ---
 ## Locking and queuing
+
+- Some shared data is necessary for control (otherwise use processes).
+- Locks restrict access to something by more than one thread.
+- Queues guarantee that items will only be retrieved once.
+
+---
+```[python]
+count = 0
+lock = threading.Lock()
+
+def incre():
+    global count 
+    lock.acquire()
+    try:
+        count += 1    
+    finally:
+        lock.release()
+```
 
 ---?code=topics/parallel/primes/basic_block.py&lang=python
 
