@@ -120,6 +120,10 @@ You can 'send' a value into a function, and have it 'yield' back a value, while 
 ---
 ## Gevent - coroutines not generators
 ---?code=topics/parallel/gevent_basic.py&lang=python
+@[2]
+@[4-12]
+@[14-17]
+
 ---?code=topics/parallel/gevent_select.py&lang=python
 @[1-6]
 @[8-18]
