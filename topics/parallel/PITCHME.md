@@ -52,6 +52,7 @@ In the second case, you might not need threads. An asynchronous approach could b
 @[13-19]
 
 ---?code=topics/parallel/primes/main.py&lang=python
+@[7-12]
 @[67-70]
 @[45-49]
 @[72-76]
@@ -116,13 +117,21 @@ You can 'send' a value into a function, and have it 'yield' back a value, while 
 @[25-38]
 @[41-44]
 
+---
 ## Gevent - coroutines not generators
+---?code=topics/parallel/gevent_basic.py&lang=python
+---?code=topics/parallel/gevent_select.py&lang=python
+@[1-6]
+@[8-18]
+@[20-28]
 
+---
 ## Futures - something you haven't done yet is a 'thing'
 ---?code=topics/parallel/futures.py&lang=python
 @[2-9]
 @[11-21]
 
+---
 ## Await, async, asyncio, aiohttp
 ---?code=topics/parallel/pubsub.py&lang=python
 @[4-9]
