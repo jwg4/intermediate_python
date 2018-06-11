@@ -67,7 +67,7 @@ def incre():
         lock.release()
 ```
 
----?code=topics/parallel/primes/basic_block.py&lang=python
+---?code=topics/parallel/primes/basic_block.py&lang=python&title=More complex Queue example
 
 ---?code=topics/parallel/primes/primes.py&lang=python
 @[4-10]
