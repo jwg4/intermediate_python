@@ -36,7 +36,10 @@ def handle_results(limit):
         while (handled + 1) in primes:
             handled = handled + 1
 
-        while can_test_to(top_number(handled)) >= top_number(queued + 1) and queued < limit:
+        while (
+                can_test_to(top_number(handled)) >=
+                top_number(queued + 1)
+                and queued < limit):
             next_block = queued + 1
             queue_task(next_block)
             queued = next_block
