@@ -4,12 +4,21 @@
 We are going to talk about doing lots of things on one machine. NOT about doing lots of things on lots of machines (or one thing on lots of machines).
 
 ---
-## Multiprocessing
-We can just run lots of different processes. For example several different Python scripts,
-or several copies of the same one. They can run on different CPU cores, at the same time. If one
-process is waiting for something, the others will continue as normal.
+## Three topics
+(In ascending order of how confusing they are.)
+ 1. Multiprocessing
+ 2. Multithreading
+ 3. Async
 
-They don't share any RAM and have to co-ordinate using the filesystem.
+---
+## Multiprocessing
+ - We can just run lots of different processes. 
+ - several different Python scripts or several copies of the same one.
+ - Run on different CPU cores, at the same time.
+ - if one process is waiting for something, the others continue.
+
+ - Don't share any RAM.
+ - Have to co-ordinate eg. using the filesystem.
 
 ---
 ## Multiprocessing works if:
@@ -22,9 +31,11 @@ They don't share any RAM and have to co-ordinate using the filesystem.
 
 ---
 ## Multithreading
-You start different threads in one Python script. These are processes from the CPU's point of view,
-but all the same process from the RAM's point of view. So different threads can run at the same time
-on different cores, but can all access the same piece of memory.
+ - You start different threads in one Python script.
+ - Separate from the CPU's point of view,
+ - All the same process from the RAM's point of view.
+ - Different threads can run at the same time on different cores.
+ - All access the same piece of memory.
 
 ---
 ## Multithreading vs. multiprocessing
@@ -53,14 +64,14 @@ In the second case, you might not need threads. An asynchronous approach could b
 
 Lots of built-in Python code uses C code. Functions are not designed to be pre-emptive, especially modifying objects.
 
-Need special versions of everything - or to isolate objects on threads. The special versions use loc or low-level control like critical sections.
+Need special versions of everything - or to isolate objects on threads. The special versions use locks or low-level control like critical sections.
 
 ---
 ## Locking and queuing
 
 - Some shared data is necessary for control (otherwise use processes).
-- Locks restrict access to something by more than one thread.
-- Queues guarantee that items will only be retrieved once.
+- Locks restrict access by more than one thread.
+- Queues guarantee items are only retrieved once.
 
 ---
 ## Basic Lock example
@@ -116,7 +127,7 @@ def incre():
 
 ---
 ## Structuring async code
- - Coroutines - explicitly switch to another 'fake thread'
+ - Coroutines - explicitly switch to another 'thread'
  - Event driven - events add something to the queue
  - Callbacks - pass the next function to the async one
  - Promises/futures - monadic
