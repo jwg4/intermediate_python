@@ -167,7 +167,7 @@ You can 'send' a value into a function, and have it 'yield' back a value, while 
  - Save whole stack, and switch context.
  - When switching back, restore whole stack.
  - Still relies on giving up execution.
- - `gevent` and `greenlet` implementations include an event loop.
+ - `gevent` and `eventlet` implementations include an event loop.
  
 ---
 ## Gevent - coroutines not generators
