@@ -53,7 +53,8 @@ Need special versions of everything - or to isolate objects on threads.
 - Locks restrict access to something by more than one thread.
 - Queues guarantee that items will only be retrieved once.
 
----?title=Basic Lock example
+---
+## Basic Lock example
 ```[python]
 count = 0
 lock = threading.Lock()
@@ -91,19 +92,18 @@ def incre():
  - Commonly used in JavaScript.
  - Important for application servers.
  - Typically using an event queue.
- - When the call does return, how do you pause the thing you're now doing?
+ 
+---
+## Three elements
+ - Give up execution instead of blocking
+ - Choose what to run next.
+ - Decide when to carry on executing the paused thing.
 
 ---
-## 'Green' threads
-The OS only sees one thread. But on that thread we do one thing, then clear the stack
-and start doing something else. We save the context we were doing the first thing in,
-so that we can switch back to it.
-
-Blocking I/O means that the process will block while waiting for I/O. If we have green
-threads and only one OS-level process, all activity on that process will pause (but other
-processes, at the OS level, will run). So we have to use nonblocking IO.
-
-We can combine nonblocking I/O with an event loop to have async I/O.
+## Can't work with normal I/O
+ - only one OS thread.
+ - if blocking IO is used, the whole thread blocks.
+ - need async-aware I/O libraries.
 
 ---
 ## Structuring async code
@@ -139,6 +139,16 @@ You can 'send' a value into a function, and have it 'yield' back a value, while 
 @[25-38]
 @[41-44]
 
+
+---
+## 'Green' threads
+ - The OS only sees one thread.
+ - 'coroutines'
+ - Save whole stack, and switch context.
+ - When switching back, restore whole stack.
+ - Still relies on giving up execution.
+ - `gevent` and `greenlet` implementations include an event loop.
+ 
 ---
 ## Gevent - coroutines not generators
 ---?code=topics/parallel/gevent_basic.py&lang=python
@@ -156,6 +166,13 @@ You can 'send' a value into a function, and have it 'yield' back a value, while 
 ---?code=topics/parallel/futures.py&lang=python
 @[2-9]
 @[11-21]
+
+---
+## The modern approach
+ - asyncio in Python 3.4
+ - asyncio-compatible libraries such as aiohttp
+ - `await` and `async` keywords in Python 3.5
+ - Easy to wrap an async function with user code.
 
 ---
 ## Await, async, asyncio, aiohttp
