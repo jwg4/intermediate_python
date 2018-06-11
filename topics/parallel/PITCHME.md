@@ -5,16 +5,20 @@ We are going to talk about doing lots of things on one machine. NOT about doing 
 
 ---
 ## Multiprocessing
-This is a good approach if it works for you and you don't want to get embroiled in complexity.
-
 We can just run lots of different processes. For example several different Python scripts,
 or several copies of the same one. They can run on different CPU cores, at the same time. If one
 process is waiting for something, the others will continue as normal.
 
-They don't share any RAM and have to co-ordinate using the filesystem. If waiting for the filesystem
-takes too long, this won't work.
+They don't share any RAM and have to co-ordinate using the filesystem.
 
-The Global Interpreter Lock is not a problem for separate Python processes.
+---
+## Multiprocessing works if:
+ - You don't want to deal with threads or async.
+ - You manage coordination somewhere else.
+ - Or hardly any coordination.
+ - All the time is taken in Python code.
+ - You don't max out filesystem or network resources.
+ - (You want to scale to other machines.)
 
 ---
 ## Multithreading
@@ -22,16 +26,14 @@ You start different threads in one Python script. These are processes from the C
 but all the same process from the RAM's point of view. So different threads can run at the same time
 on different cores, but can all access the same piece of memory.
 
-Unlike having multiple processes, multiple threads can all access the same Python object. This means
-you have to use objects which are thread-safe. Threads can't choose when they are going to be pre-empted.
-So an object has to work ok if half of a method is run on it, then another method or the same method starts
-to run on it. Or they can have critical blocks, where they can't be interrupted. Putting critical blocks
-around all your methods would be annoying.
-
-The Global Interpreter Lock means that two threads can't run Python code on different cores at the same
-time. Why not? Because Python has a global namespace which both processes can edit.
-
-This is ok if:
+---
+## Multithreading vs. multiprocessing
+ - All threads can access the same Python objects.
+ - Objects have to be thread-safe.
+ - Can't run Python code on two CPUs at once.
+ 
+---
+## Threading works if:
 1. Most of your time is spent in C or C++ code.
 2. Most of your time is spent waiting for I/O.
 
@@ -40,11 +42,18 @@ In the second case, you might not need threads. An asynchronous approach could b
 (In the first case, you maybe don't need Python threads.)
 
 ---
+## The Global Interpreter Lock
+ - Python interpretation is not thread-safe.
+ - Lots of things have global state.
+ - We can run Python with multiple threads.
+ - Can't run Python code on both threads.
+
+---
 ## Thread-safe objects
 
 Lots of built-in Python code uses C code. Functions are not designed to be pre-emptive, especially modifying objects.
 
-Need special versions of everything - or to isolate objects on threads.
+Need special versions of everything - or to isolate objects on threads. The special versions use loc or low-level control like critical sections.
 
 ---
 ## Locking and queuing
