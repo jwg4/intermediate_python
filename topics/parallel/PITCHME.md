@@ -133,7 +133,7 @@ You can 'send' a value into a function, and have it 'yield' back a value, while 
 
 ---
 ## Await, async, asyncio, aiohttp
----?code=topics/parallel/pubsub.py&lang=python
+---?code=topics/parallel/reddit.py&lang=python
 @[4-9]
 @[28-33]
 @[11-14]
