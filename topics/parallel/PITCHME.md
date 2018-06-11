@@ -143,3 +143,11 @@ You can 'send' a value into a function, and have it 'yield' back a value, while 
 @[11-14]
 @[16-26]
 @[35-38]
+
+---
+## Thanks
+ - Jack Grahl
+ - twitter.com/jackgrahl
+ - github.com/jwg4
+ - My job: PrismFP Analytics
+ - Thanks to Robert for FSQ
