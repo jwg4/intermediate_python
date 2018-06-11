@@ -148,7 +148,7 @@ You can 'send' a value into a function, and have it 'yield' back a value, while 
 
 ---?code=topics/parallel/send.py&lang=python
 @[1-8]
-@[12-16]
+@[10-16]
 
 ---
 ## Twisted uses yield to pass control around
