@@ -6,4 +6,4 @@ class BasicBlock(object):
         return n * self.size
 
     def block_contains(self, n):
-        return ((n-1) / self.size + 1)
+        return ((n-1) // self.size + 1)

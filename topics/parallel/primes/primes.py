@@ -15,7 +15,7 @@ def generate_primes_between(a, b, primes):
         if all(
             all((i % p != 0) for p in l)
             for l in primes
-            ):
+        ):
             yield i
 
 

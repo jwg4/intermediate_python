@@ -17,7 +17,10 @@ top_number = counter.top_number
 
 
 def queue_task(next_block):
-    blocks = [ primes[i] for i in range(1, block_contains(need_to_test(top_number(next_block))) + 1) ]
+    blocks = [
+        primes[i] for i in
+        range(1, block_contains(need_to_test(top_number(next_block))) + 1)
+    ]
     task = (next_block, blocks)
     task_queue.put(task)
 
@@ -33,7 +36,7 @@ def handle_results(limit):
         while (handled + 1) in primes:
             handled = handled + 1
 
-       while can_test_to(top_number(handled)) >= top_number(queued + 1) and queued < limit:
+        while can_test_to(top_number(handled)) >= top_number(queued + 1) and queued < limit:
             next_block = queued + 1
             queue_task(next_block)
             queued = next_block
@@ -61,7 +64,7 @@ def get_results(primes):
 
 
 if __name__ == '__main__':
-    BLOCK_COUNT = 10000
+    BLOCK_COUNT = 100
     WORKER_COUNT = 10
 
     put_first_block()
@@ -76,5 +79,5 @@ if __name__ == '__main__':
         w.terminate()
 
     results = get_results(primes)
-    print len(results)
-    print results[-1]
+    print(len(results))
+    print(results[-1])
