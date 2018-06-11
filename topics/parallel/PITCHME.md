@@ -53,7 +53,7 @@ Need special versions of everything - or to isolate objects on threads.
 - Locks restrict access to something by more than one thread.
 - Queues guarantee that items will only be retrieved once.
 
----
+---?title=Basic Lock example
 ```[python]
 count = 0
 lock = threading.Lock()
